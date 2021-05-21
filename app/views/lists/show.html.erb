@@ -28,3 +28,25 @@
   <%= f.input :comment %>
   <%= f.submit "Create new bookmark", class: "btn btn-primary" %>
 <% end %>
+
+<h2 class="m-3">Reviews</h2>
+
+<div class="d-flex m-3">
+<% @list.reviews.each do |review| %>
+
+  <div class="card m-3">
+    <div class="card-body">
+      <h5><%= review.name %>: </h5>
+      <p>Rating: <%= review.rating %> </p>
+      <p><%= review.comment %></p>
+    </div>  
+  </div>
+<% end %>
+
+<%= simple_form_for [ @list, @review ] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :rating, :input_html => { :value => '(0..5)' } %>
+  <%= f.input :comment %>
+  <%= f.submit "Create new review", class: "btn btn-primary" %>
+<% end %>
+</div>

@@ -17,5 +17,5 @@ url = 'http://tmdb.lewagon.com/movie/top_rated'
 movie = JSON.load(open(url))
 
 movie['results'].each do |json|
-  Movie.create(title: json["title"], overview: json["overview"], poster_url: "https://image.tmdb.org/t/p/w500/#{json["backdrop_path"]}", rating: json["vote_average"])
+  Movie.create(title: json["title"], overview: json["overview"], poster_url: "https://image.tmdb.org/t/p/w500/#{json["poster_path"]}", rating: json["vote_average"])
 end
